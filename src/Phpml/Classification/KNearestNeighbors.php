@@ -55,9 +55,8 @@ class KNearestNeighbors implements Classifier
         }
 
         arsort($predictions);
-        reset($predictions);
-
-        return key($predictions);
+        $score = reset($predictions) / $this->k;
+        return [key($predictions), $score];
     }
 
     /**
